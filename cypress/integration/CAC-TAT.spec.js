@@ -49,10 +49,12 @@ describe('Central de Atendimento ao Cliente TAT', function () {
 
     })
 
-    it('campo telefone continua vazio quando preenchido com valor não numérico', () => {
-        cy.get('#phone')
-            .type('abcdefgh')
-            .should('have.value', '')
+    Cypress._.times(5, () => {
+        it('campo telefone continua vazio quando preenchido com valor não numérico', () => {
+            cy.get('#phone')
+                .type('abcdefgh')
+                .should('have.value', '')
+        })
     })
 
     it('exibe mensagem de erro quando o telefone se torna obrigatório mas não é preenchido antes do envio do formulário', () => {
